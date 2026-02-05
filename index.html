@@ -20,11 +20,6 @@
 
         body {
             background-color: var(--bg);
-            /* Техническая сетка */
-            background-image: 
-                linear-gradient(var(--line) 1px, transparent 1px),
-                linear-gradient(90deg, var(--line) 1px, transparent 1px);
-            background-size: 50px 50px;
             color: var(--text-main);
             font-family: var(--font-main);
             min-height: 100vh;
@@ -36,7 +31,7 @@
         /* --- LAYOUT --- */
         .grid-container {
             display: grid;
-            grid-template-rows: auto 1fr auto; /* Header, Content, Footer */
+            grid-template-rows: auto 1fr; /* Header, Content */
             min-height: 100vh;
             max-width: 1400px;
             margin: 0 auto;
@@ -202,6 +197,7 @@
             position: relative;
             width: 12px;
             height: 12px;
+            flex-shrink: 0;
         }
 
         .icon-plus::before, .icon-plus::after {
@@ -215,7 +211,6 @@
         .icon-plus::after { width: 1px; height: 100%; top: 0; left: 50%; }
 
         .accordion-item.active .icon-plus::after {
-            transform: rotate(90deg); /* Makes it look like a minus if rotate, but for a simple X or - we usually rotate the container. Let's just fade out vertical line */
             opacity: 0;
         }
         
@@ -231,31 +226,6 @@
             line-height: 1.6;
             color: var(--text-dim);
         }
-
-        /* --- FOOTER --- */
-        footer {
-            height: 100px;
-            border-top: 1px solid var(--line);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-wrap {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .logo-circle {
-            width: 40px; height: 40px;
-            border: 1px solid var(--accent);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 5px;
-            box-shadow: 0 0 15px rgba(74, 200, 220, 0.2);
-        }
-        .logo-brand { font-size: 10px; letter-spacing: 4px; color: #fff; font-family: var(--font-main); }
 
         /* Responsive */
         @media (max-width: 1024px) {
@@ -338,19 +308,6 @@
                 <!-- JS will inject questions here -->
             </div>
         </section>
-
-        <!-- FOOTER -->
-        <footer>
-            <div class="logo-wrap">
-                <div class="logo-circle">
-                    <svg width="20" height="20" viewBox="0 0 40 40" fill="none">
-                        <path d="M20 2 L38 20 L20 38 L2 20 Z" stroke="#4AC8DC" stroke-width="2"/>
-                        <path d="M20 12 C20 12 16 18 16 22 C16 25 18 27 20 27 C22 27 24 25 24 22 C24 18 20 12 20 12Z" fill="#4AC8DC"/>
-                    </svg>
-                </div>
-                <div class="logo-brand">AQUINTAQA</div>
-            </div>
-        </footer>
     </div>
 
     <script>
@@ -378,11 +335,11 @@
                         a: "RO membrane trains are not used, so membrane fouling is not applicable by design. This reduces the need for frequent chemical cleaning, simplifies maintenance, and improves operational stability."
                     },
                     {
-                        q: "Q7. Standards: public benchmarks?",
+                        q: "Q4. Standards: public benchmarks?",
                         a: "The public page shows status trends only—no numeric values and no operating-mode disclosure. Full before/after tables, methods, and reports are available after e-NDA in the Data Room."
                     },
                     {
-                        q: "Q8. Validation: pre-NDA vs post-NDA?",
+                        q: "Q5. Validation: pre-NDA vs post-NDA?",
                         a: "Pre-NDA: high-level architecture, safe-to-disclose claims, public status indicators. Post e-NDA: independent lab reports, sampling protocols, analytical methods, and expanded datasets."
                     }
                 ]
@@ -410,11 +367,11 @@
                         a: "Отсутствие RO-мембран исключает их загрязнение (фаулинг). Это упрощает обслуживание, снижает необходимость в химии и повышает стабильность."
                     },
                     {
-                        q: "Q7. Стандарты: где цифры WHO/EPA?",
+                        q: "Q4. Стандарты: где цифры WHO/EPA?",
                         a: "Публично доступны только статус-тренды без числовых значений. Полные таблицы, методики и отчеты доступны в Data Room после подписания e-NDA."
                     },
                     {
-                        q: "Q8. Валидация: что доступно до/после NDA?",
+                        q: "Q5. Валидация: что доступно до/после NDA?",
                         a: "До NDA: архитектура высокого уровня, безопасные клеймы, статус-индикаторы. После NDA: лабораторные отчеты, протоколы, методики и полные датасеты."
                     }
                 ]
@@ -466,7 +423,7 @@
             const item = btn.parentElement;
             const content = item.querySelector('.accordion-content');
             
-            // Close others if needed (optional, keeping one open feels more app-like)
+            // Close others
             document.querySelectorAll('.accordion-item').forEach(i => {
                 if (i !== item) {
                     i.classList.remove('active');
