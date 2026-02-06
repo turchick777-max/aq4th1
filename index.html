@@ -35,15 +35,12 @@
             min-height: 100vh;
             max-width: 1400px;
             margin: 0 auto;
-            border-left: 1px solid var(--line);
-            border-right: 1px solid var(--line);
             position: relative;
         }
 
         /* --- HEADER AREA --- */
         .top-section {
             padding: 40px 60px;
-            border-bottom: 1px solid var(--line);
         }
 
         .page-header {
@@ -79,7 +76,7 @@
 
         .lang-btn {
             background: none;
-            border: 1px solid var(--line);
+            border: none;
             color: var(--text-dim);
             padding: 5px 12px;
             cursor: pointer;
@@ -88,7 +85,7 @@
             transition: 0.3s;
         }
 
-        .lang-btn.active { color: var(--accent); border-color: var(--accent); }
+        .lang-btn.active { color: var(--accent); }
 
         /* --- FEATURES (ICONS) --- */
         .features-grid {
@@ -142,7 +139,6 @@
         .faq-left {
             width: 35%;
             padding: 50px 60px;
-            border-right: 1px solid var(--line);
         }
 
         .faq-right {
@@ -166,7 +162,6 @@
 
         /* Accordion */
         .accordion-item {
-            border-bottom: 1px solid var(--line);
             margin-bottom: 0;
         }
 
@@ -234,8 +229,8 @@
         @media (max-width: 1024px) {
             .features-grid { grid-template-columns: 1fr; gap: 30px; }
             .faq-section { flex-direction: column; }
-            .faq-left, .faq-right { width: 100%; border-right: none; padding: 30px 40px; }
-            .faq-left { border-bottom: 1px solid var(--line); padding-bottom: 20px; }
+            .faq-left, .faq-right { width: 100%; padding: 30px 40px; }
+            .faq-left { padding-bottom: 20px; }
         }
     </style>
 </head>
