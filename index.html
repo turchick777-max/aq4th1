@@ -299,7 +299,6 @@
         <section class="faq-section">
             <div class="faq-left">
                 <div class="faq-heading">FAQ</div>
-                <div class="faq-sub" id="txt-faq-sub">Answers to questions you may have regarding process and standards.</div>
             </div>
             
             <div class="faq-right" id="faq-list">
@@ -387,9 +386,6 @@
             document.getElementById('t-f1').innerText = d.f1t; document.getElementById('d-f1').innerText = d.f1d;
             document.getElementById('t-f2').innerText = d.f2t; document.getElementById('d-f2').innerText = d.f2d;
             document.getElementById('t-f3').innerText = d.f3t; document.getElementById('d-f3').innerText = d.f3d;
-            
-            // Update FAQ Left
-            document.getElementById('txt-faq-sub').innerText = d.faqSub;
 
             // Buttons state
             document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.innerText.toLowerCase() === lang));
